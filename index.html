@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-emptive Judicial Training Institute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Open+Sans:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#141414; --navy2:#5a4d40; --gold:#ba8748; --gold-soft:#eadcc8;
+    --paper:#ffffff; --panel:#f2f2f2; --ink:#262626; --muted:#5f5a54; --rule:#e2dcd3; --pink:#ba8748;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:"Open Sans",Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+  a{color:var(--navy)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+
+  header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+  header.top .wrap{display:flex;align-items:center;gap:16px;padding-top:18px;padding-bottom:18px}
+  .crest{width:54px;height:54px;flex:none}
+  .inst{font-family:"Cormorant Garamond",serif;font-size:1.35rem;letter-spacing:.02em;line-height:1.1}
+  .inst small{display:block;font-family:Inter,sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-top:4px}
+
+  .ribbon{background:var(--gold);color:#fff;font-size:.8rem;text-align:center;padding:7px 12px;letter-spacing:.03em}
+
+  .hero{padding:56px 0 40px;text-align:center;border-bottom:1px solid var(--rule)}
+  .eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.4rem);color:var(--navy);margin:14px 0 16px}
+  .hero p.lede{font-size:1.1rem;color:var(--muted);max-width:620px;margin:0 auto}
+  .ref{display:inline-block;margin-top:22px;font-size:.8rem;color:var(--muted);border:1px solid var(--rule);padding:6px 12px;border-radius:3px;background:#fff}
+
+  section{padding:44px 0;border-bottom:1px solid var(--rule)}
+  section:nth-of-type(even){background:var(--panel)}
+  section h2{font-size:2rem;color:var(--navy);margin-bottom:14px}
+  section p{margin:0 0 14px}
+
+  .notice{background:#fff;border:1px solid var(--rule);border-left:5px solid var(--gold);padding:24px 26px;border-radius:2px}
+  .notice p:last-child{margin-bottom:0}
+
+  table.elig{width:100%;border-collapse:collapse;margin-top:10px;background:#fff;font-size:.95rem}
+  table.elig th,table.elig td{border:1px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:top}
+  table.elig th{background:var(--navy2);color:#fff;font-weight:500}
+  .yes{color:#2f7a4a;font-weight:600}
+  .waived{color:var(--pink);font-weight:600}
+  .footnote{font-size:.8rem;color:var(--muted);margin-top:8px}
+
+  .modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:8px}
+  .mod{background:#fff;border:1px solid var(--rule);padding:18px 18px 16px;border-radius:2px}
+  .mod .code{font-size:.7rem;letter-spacing:.14em;color:var(--gold);font-weight:600}
+  .mod h3{font-size:1.3rem;color:var(--navy);margin:4px 0 6px}
+  .mod p{font-size:.9rem;color:var(--muted);margin:0}
+
+  details{background:#fff;border:1px solid var(--rule);margin-bottom:10px;border-radius:2px}
+  summary{cursor:pointer;padding:14px 18px;font-weight:500;color:var(--navy);list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--gold);font-weight:600}
+  details[open] summary::before{content:"– "}
+  details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+
+  .accept{text-align:center}
+  .accept p{max-width:560px;margin:0 auto 22px;color:var(--muted)}
+  button.cta{font:inherit;font-weight:600;font-size:1rem;background:var(--navy);color:#fff;border:0;padding:15px 30px;border-radius:3px;cursor:pointer;border-bottom:3px solid var(--gold);letter-spacing:.02em}
+  button.cta:hover{background:var(--navy2)}
+
+  #reveal{display:none;padding:50px 0 60px;background:var(--panel)}
+  #reveal.show{display:block;animation:fade .6s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .cert{background:#fff;border:2px solid var(--gold);outline:6px double var(--gold-soft);outline-offset:-14px;padding:44px 34px;text-align:center;max-width:640px;margin:0 auto}
+  .cert .eyebrow{color:var(--gold)}
+  .cert h2{font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);margin:10px 0}
+  .cert .name{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:2.4rem;color:var(--navy2);margin:6px 0 10px}
+  .cert p{color:var(--ink)}
+  .gift{display:inline-block;margin-top:16px;background:var(--pink);color:#fff;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:3px}
+  .gift:hover{filter:brightness(1.07)}
+  .sigs{display:flex;justify-content:space-around;gap:20px;margin-top:34px;flex-wrap:wrap}
+  .sig{min-width:180px}
+  .sig .line{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:var(--navy);border-bottom:1px solid var(--ink);padding-bottom:2px}
+  .sig small{display:block;font-size:.75rem;color:var(--muted);margin-top:4px}
+
+  footer{background:var(--navy);color:#c9cfdb;font-size:.78rem;padding:26px 0;text-align:center}
+  footer p{margin:4px 0}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <svg class="crest" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#ba8748" stroke-width="2"/>
+      <circle cx="32" cy="32" r="25" fill="none" stroke="#eadcc8" stroke-width="1"/>
+      <line x1="32" y1="14" x2="32" y2="46" stroke="#eadcc8" stroke-width="2"/>
+      <line x1="18" y1="22" x2="46" y2="22" stroke="#eadcc8" stroke-width="2"/>
+      <path d="M18 22 L13 34 H23 Z" fill="none" stroke="#ba8748" stroke-width="1.6"/>
+      <path d="M46 22 L41 34 H51 Z" fill="none" stroke="#ba8748" stroke-width="1.6"/>
+      <path d="M24 48 H40" stroke="#ba8748" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="32" cy="13" r="2.4" fill="#ba8748"/>
+    </svg>
+    <div class="inst">Pre-emptive Judicial Training Institute
+      <small>Est. last Tuesday · Ōtautahi</small>
+    </div>
+  </div>
+</header>
+
+<div class="ribbon">Candidate portal · Intake 2026 · Strictly confidential (please tell everyone)</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Notice of identification</div>
+    <h1>Congratulations, Ms Payne.</h1>
+    <p class="lede">You have been identified as a candidate for the Institute's flagship programme for lawyers who will, eventually, almost certainly, at some point, be judges.</p>
+    <span class="ref">Ref: PJTI/2026/SP-35 &nbsp;·&nbsp; Category: Exceptional (premature)</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Why you?</h2>
+    <div class="notice">
+      <p>Our selection panel reviewed thousands of practitioners (two). Your file stood out for its clarity, its judgement, and the way you say "with respect" in a way that conveys none at all.</p>
+      <p>We are aware that you have approximately <strong>3.5 years' post-qualification experience</strong>. We consider this to be roughly half of what is usually required, which is precisely why the programme is called <em>pre-emptive</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Eligibility assessment</h2>
+    <table class="elig">
+      <tr><th>Criterion</th><th>Requirement</th><th>Candidate</th></tr>
+      <tr><td>Years of practice</td><td>7 years</td><td class="waived">3.5 — waived*</td></tr>
+      <tr><td>Ability to look unimpressed</td><td>Advanced</td><td class="yes">Exceeds</td></tr>
+      <tr><td>Capacity to say "I'll reserve my decision"</td><td>Demonstrated</td><td class="yes">Met</td></tr>
+      <tr><td>Patience with counsel who say "in my submission" every sentence</td><td>High</td><td class="yes">Under development</td></tr>
+      <tr><td>Birthday this week</td><td>Desirable</td><td class="yes">Met</td></tr>
+    </table>
+    <p class="footnote">* Waived under the Institute's "she'll get there" provision.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Curriculum</h2>
+    <p>Candidates complete the following core modules. Attendance is optional; gravitas is not.</p>
+    <div class="modules">
+      <div class="mod"><div class="code">PJT 101</div><h3>Looking Over One's Spectacles</h3><p>Intermediate. Spectacles supplied for candidates with perfect eyesight.</p></div>
+      <div class="mod"><div class="code">PJT 115</div><h3>The Weary Sigh</h3><p>Pitch, duration and when to deploy it during a 40-minute bail application.</p></div>
+      <div class="mod"><div class="code">PJT 204</div><h3>"I Am Not Assisted By That Submission"</h3><p>Seven ways to say it. Practical assessment with real counsel.</p></div>
+      <div class="mod"><div class="code">PJT 230</div><h3>Advanced Pausing</h3><p>The silence before "Thank you, Mr Harré." Pass mark: counsel visibly sweating.</p></div>
+      <div class="mod"><div class="code">PJT 312</div><h3>Reserved Judgments</h3><p>How long is too long? A practical workshop (results in six to eighteen months).</p></div>
+      <div class="mod"><div class="code">PJT 399</div><h3>Self-Care for the Bench</h3><p>Capstone. Completed off-site at an approved provider. See below.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Frequently asked questions</h2>
+    <details><summary>Is this affiliated with the Ministry of Justice?</summary><p>Absolutely not. We are not affiliated with any ministry, court, tribunal, or recognised body. We are barely affiliated with each other.</p></details>
+    <details><summary>Is there a selection interview?</summary><p>Yes. It took place without your knowledge over the past 3.5 years. You passed.</p></details>
+    <details><summary>Do I get a robe?</summary><p>Not yet. Please continue to wear the one you have.</p></details>
+    <details><summary>Who should I contact with questions?</summary><p>Your employer, who knows nothing about this and is very surprised.</p></details>
+  </div>
+</section>
+
+<section class="accept">
+  <div class="wrap">
+    <h2>Accept your nomination</h2>
+    <p>By clicking below you agree to the Institute's terms, which are that you have a lovely birthday.</p>
+    <button class="cta" id="acceptBtn" type="button">I accept, with respect</button>
+  </div>
+</section>
+
+<div id="reveal" aria-live="polite">
+  <div class="wrap">
+    <div class="cert">
+      <div class="eyebrow">Certificate of completion · PJT 399</div>
+      <h2>Happy birthday</h2>
+      <div class="name">Sophie</div>
+      <p>No judicial appointment is on offer (yet), but the capstone module is real. Please complete <strong>Self-Care for the Bench</strong> at your nearest approved provider.</p>
+      <!-- REPLACE the href below with the Mecca e-gift voucher link -->
+      <a class="gift" href="#voucher-link-here" id="giftLink">Claim your gift voucher →</a>
+      <div class="sigs">
+        <div class="sig"><div class="line">Thomas</div><small>Dean of Premature Appointments</small></div>
+        <div class="sig"><div class="line">[Crown friend]</div><small>Registrar, Office of the Crown (unofficially)</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>The Pre-emptive Judicial Training Institute is a birthday joke. It is not a real body and has no connection to the Ministry of Justice, the courts or the Judicial Appointments Unit.</p>
+    <p>No judges were consulted in the making of this website.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('acceptBtn').addEventListener('click', function(){
+    var r = document.getElementById('reveal');
+    r.classList.add('show');
+    this.textContent = 'Nomination accepted';
+    this.disabled = true;
+    r.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+</script>
+</body>
+</html>
