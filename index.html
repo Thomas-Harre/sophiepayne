@@ -75,6 +75,11 @@
   .cert p{color:var(--ink)}
   .gift{display:inline-block;margin-top:16px;background:var(--pink);color:#fff;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:3px}
   .gift:hover{filter:brightness(1.07)}
+  button.gift{font:inherit;font-weight:600;border:0;cursor:pointer}
+  .voucher{margin:22px auto 0;max-width:380px;border:1px dashed var(--gold);background:var(--panel);padding:18px 16px}
+  .vlabel{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .vcode{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:1.25rem;letter-spacing:.06em;color:var(--navy);margin:6px 0 2px;user-select:all;word-break:break-word}
+  .vpin{font-size:.85rem;color:var(--muted);margin:10px 0 0}
   .sigs{display:flex;justify-content:space-around;gap:20px;margin-top:34px;flex-wrap:wrap}
   .sig{min-width:180px}
   .sig .line{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:var(--navy);border-bottom:1px solid var(--ink);padding-bottom:2px}
@@ -179,9 +184,13 @@
       <div class="eyebrow">Certificate of completion · PJT 399</div>
       <h2>Happy birthday</h2>
       <div class="name">DCJ SP</div>
-      <p>Your judicial appointment is in the mail. While you wait, please complete <strong>Getting through a day in DC8</strong> at your nearest approved provider.</p>
-      <!-- REPLACE the href below with the Mecca e-gift voucher link -->
-      <a class="gift" href="9036014137816622513989" id="giftLink">Claim your gift voucher →</a>
+      <p>Your judicial appointment is in the mail. While you wait, please complete <strong>Getting through a day in DC8</strong> at your nearest approved provider, Mecca.</p>
+      <div class="voucher">
+        <div class="vlabel">Gift voucher number</div>
+        <div class="vcode" id="vcode">9036 0141 3781 6622 513989</div>
+        <button class="gift" type="button" id="copyBtn">Copy number</button>
+        <p class="vpin">PIN available from the Dean on request.</p>
+      </div>
       <div class="sigs">
         <div class="sig"><div class="line">Thomas Harré</div><small>Dean of Early-Career Appointments</small></div>
         <div class="sig"><div class="line">Courtney Martyn</div><small>Registrar, Office of the Crown (unofficially)</small></div>
@@ -204,6 +213,11 @@
     this.textContent = 'Nomination accepted';
     this.disabled = true;
     r.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var b=this, t='9036014137816622513989';
+    try{ navigator.clipboard.writeText(t).then(function(){ b.textContent='Copied'; }, function(){ b.textContent='Select the number above to copy'; }); }
+    catch(e){ b.textContent='Select the number above to copy'; }
   });
 </script>
 </body>
